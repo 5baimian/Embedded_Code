@@ -1,0 +1,88 @@
+C51 COMPILER V9.57.0.0   MAIN                                                              11/20/2024 22:48:20 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: D:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "Delay.h"
+   3          #include "Key.h"
+   4          #include "Nixie.h"
+   5          #include "Timer0.h"
+   6          
+   7          sbit Motor=P1^0;
+   8          unsigned char Counter,Compare;
+   9          unsigned char KeyNum,Speed;
+  10          
+  11          void main()
+  12          {
+  13   1        Timer0_Init();
+  14   1        Nixie(1,0);
+  15   1        while(1)
+  16   1        {
+  17   2          KeyNum=Key();
+  18   2          if(KeyNum)
+  19   2          {
+  20   3            //Speed++;
+  21   3            //Speed%=4; 
+  22   3            Speed=KeyNum;
+  23   3            if(Speed==4)
+  24   3            {
+  25   4              Compare=0;
+  26   4            }
+  27   3            if(Speed==1)
+  28   3            {
+  29   4              Compare=20;
+  30   4            }
+  31   3            if(Speed==2)
+  32   3            {
+  33   4              Compare=50;
+  34   4            }
+  35   3            if(Speed==3)
+  36   3            {
+  37   4              Compare=100;
+  38   4            }
+  39   3          }
+  40   2          Nixie(1,Speed);
+  41   2        }
+  42   1      }
+  43          
+  44          
+  45          void Timer0_Routine() interrupt  1
+  46          {
+  47   1      
+  48   1        TL0 = 0xA4;       //设置定时初始值
+  49   1        TH0 = 0xFF;       //设置定时初始值
+  50   1        
+  51   1        Counter++;
+  52   1        Counter%=100;
+  53   1        
+  54   1        if(Counter<Compare)
+C51 COMPILER V9.57.0.0   MAIN                                                              11/20/2024 22:48:20 PAGE 2   
+
+  55   1        {
+  56   2          Motor=1;
+  57   2        }
+  58   1        else
+  59   1        {
+  60   2          Motor=0;
+  61   2        }
+  62   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    109    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

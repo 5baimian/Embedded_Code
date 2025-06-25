@@ -1,0 +1,99 @@
+C51 COMPILER V9.57.0.0   MAIN                                                              10/01/2024 23:28:35 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: D:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "Delay.h"
+   3          //位声明
+   4          sbit RCK=P3^5;  //RCLK
+   5          sbit SCK=P3^6;  //SRCLK
+   6          sbit SER=P3^4;  //SER
+   7          
+   8          
+   9          #define MATRIX_LED_PORT P0
+  10          
+  11          /**
+  12            * @brief  74HC595写入一个字节
+  13            * @param 要写入的字节
+  14            * @retval 无
+  15            */
+  16          void _74HC595_WriteByte(unsigned char Byte)
+  17          {
+  18   1        unsigned char i;
+  19   1        for(i=0;i<8;i++)
+  20   1        {
+  21   2          SER=Byte&(0x80>>i);
+  22   2          SCK=1;
+  23   2          SCK=0;
+  24   2        }
+  25   1        RCK=1;
+  26   1        RCK=0;
+  27   1        
+  28   1        
+  29   1        
+  30   1        
+  31   1      //  SER=Byte&0x80;//移第一位
+  32   1      //  SCK=1;
+  33   1      //  SCK=0;
+  34   1      //  SER=Byte&0x40;//移第二位
+  35   1      //  SCK=1;
+  36   1      //  SCK=0;
+  37   1      //  ...           //...
+  38   1      }
+  39          
+  40          
+  41          /**
+  42          * @brief  LED点阵屏显示一列数据
+  43            * @param Column-要选择的列，范围：0—7,0在最左边
+  44          * @param Data-选择列显示的数据，高位在上，写1点亮
+  45            * @retval 无
+  46            */
+  47          void MatrixLED_ShowColumn(unsigned char Column,Data)
+  48          {
+  49   1        _74HC595_WriteByte(Data);
+  50   1        MATRIX_LED_PORT=~(0x80>>Column);
+  51   1        
+  52   1        //段选位选需要进行消影操作
+  53   1        Delay(1);
+  54   1        MATRIX_LED_PORT=0xFF;//消影
+C51 COMPILER V9.57.0.0   MAIN                                                              10/01/2024 23:28:35 PAGE 2   
+
+  55   1      }
+  56          void main()
+  57          {
+  58   1        SCK=0;
+  59   1        RCK=0;
+  60   1        
+  61   1        
+  62   1        while(1)
+  63   1        {
+  64   2          MatrixLED_ShowColumn(0,0x3C);
+  65   2          MatrixLED_ShowColumn(1,0x42);
+  66   2          MatrixLED_ShowColumn(2,0xA9);
+  67   2          MatrixLED_ShowColumn(3,0x85);
+  68   2          MatrixLED_ShowColumn(4,0x85);
+  69   2          MatrixLED_ShowColumn(5,0xA9);
+  70   2          MatrixLED_ShowColumn(6,0x42);
+  71   2          MatrixLED_ShowColumn(7,0x3C);
+  72   2        }
+  73   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    157    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
