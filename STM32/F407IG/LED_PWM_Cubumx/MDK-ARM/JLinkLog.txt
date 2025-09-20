@@ -1,0 +1,73 @@
+T39B8 000:003.470   SEGGER J-Link V7.84 Log File
+T39B8 000:003.604   DLL Compiled: Dec 14 2022 15:54:51
+T39B8 000:003.610   Logging started @ 2025-07-16 09:01
+T39B8 000:003.615 - 3.618ms
+T39B8 000:003.624 JLINK_SetWarnOutHandler(...)
+T39B8 000:003.631 - 0.009ms
+T39B8 000:003.637 JLINK_OpenEx(...)
+T39B8 000:004.995   Firmware: J-Link V9 compiled May  7 2021 16:26:12
+T39B8 000:005.365   Firmware: J-Link V9 compiled May  7 2021 16:26:12
+T39B8 000:005.512   Decompressing FW timestamp took 116 us
+T39B8 000:011.749   Hardware: V9.70
+T39B8 000:011.780   S/N: 59700618
+T39B8 000:011.788   OEM: SEGGER
+T39B8 000:011.796   Feature(s): RDI, FlashBP, FlashDL, JFlash, GDB
+T39B8 000:012.726   TELNET listener socket opened on port 19021
+T39B8 000:012.810   WEBSRV WEBSRV_Init(): Starting webserver thread(s)
+T39B8 000:012.927   WEBSRV Webserver running on local port 19080
+T39B8 000:016.691 - 13.064ms returns "O.K."
+T39B8 000:016.718 JLINK_GetEmuCaps()
+T39B8 000:016.725 - 0.009ms returns 0xB9FF7BBF
+T39B8 000:016.735 JLINK_TIF_GetAvailable(...)
+T39B8 000:016.849 - 0.120ms
+T39B8 000:016.864 JLINK_SetErrorOutHandler(...)
+T39B8 000:016.870 - 0.008ms
+T39B8 000:016.887 JLINK_ExecCommand("ProjectFile = "C:\Users\24163\Desktop\embedded_code\KEIL Program\STM32\F407IG\LED_PWM_Cubumx\MDK-ARM\JLinkSettings.ini"", ...). 
+T39B8 000:026.828   Ref file found at: E:\Users\24163\AppData\Local\Keil_v5\ARM\Segger\JLinkDevices.ref
+T39B8 000:026.930   REF file references invalid XML file: C:\Program Files\SEGGER\JLink\JLinkDevices.xml
+T39B8 000:027.060 - 10.178ms returns 0x00
+T39B8 000:028.642 JLINK_ExecCommand("Device = STM32F407IGHx", ...). 
+T39B8 000:030.192   Device "STM32F407IG" selected.
+T39B8 000:030.436 - 1.787ms returns 0x00
+T39B8 000:030.449 JLINK_ExecCommand("DisableConnectionTimeout", ...). 
+T39B8 000:030.457 - 0.004ms returns 0x01
+T39B8 000:030.464 JLINK_GetHardwareVersion()
+T39B8 000:030.470 - 0.008ms returns 97000
+T39B8 000:030.479 JLINK_GetDLLVersion()
+T39B8 000:030.485 - 0.008ms returns 78400
+T39B8 000:030.491 JLINK_GetOEMString(...)
+T39B8 000:030.499 JLINK_GetFirmwareString(...)
+T39B8 000:030.505 - 0.008ms
+T39B8 000:033.049 JLINK_GetDLLVersion()
+T39B8 000:033.060 - 0.013ms returns 78400
+T39B8 000:033.067 JLINK_GetCompileDateTime()
+T39B8 000:033.072 - 0.008ms
+T39B8 000:033.945 JLINK_GetFirmwareString(...)
+T39B8 000:033.954 - 0.012ms
+T39B8 000:034.782 JLINK_GetHardwareVersion()
+T39B8 000:034.791 - 0.012ms returns 97000
+T39B8 000:035.615 JLINK_GetSN()
+T39B8 000:035.625 - 0.012ms returns 59700618
+T39B8 000:036.495 JLINK_GetOEMString(...)
+T39B8 000:038.136 JLINK_TIF_Select(JLINKARM_TIF_SWD)
+T39B8 000:038.819 - 0.692ms returns 0x00
+T39B8 000:038.833 JLINK_HasError()
+T39B8 000:038.847 JLINK_SetSpeed(5000)
+T39B8 000:038.984 - 0.145ms
+T39B8 000:038.998 JLINK_GetId()
+T39B8 000:040.934   InitTarget() start
+T39B8 000:040.949    J-Link Script File: Executing InitTarget()
+T39B8 000:155.701   Can not attach to CPU. Trying connect under reset.
+T39B8 000:315.308   Connecting to CPU via connect under reset failed.
+T39B8 000:371.806   InitTarget() end
+T39B8 000:374.359   Connect failed. Resetting via Reset pin and trying again.
+T39B8 000:451.455   InitTarget() start
+T39B8 000:451.536    J-Link Script File: Executing InitTarget()
+T39B8 000:566.833   Can not attach to CPU. Trying connect under reset.
+T39B8 000:721.739   Connecting to CPU via connect under reset failed.
+T39B8 000:777.837   InitTarget() end
+T39B8 000:777.857 - 738.861ms returns 0x00000000
+T39B8 006:125.875 JLINK_Close()
+T39B8 006:142.601 - 16.744ms
+T39B8 006:142.623   
+T39B8 006:142.629   Closed
